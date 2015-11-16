@@ -1,0 +1,159 @@
+// JavaScript source code
+
+var name;
+var splitName;
+var weight;
+var jumpingJacks = 0;
+var squats = 0;
+var crunches = 0;
+var pushups = 0;
+var burpees = 0;
+var armCircles = 0;
+var wallSit = 0;
+
+function reset()
+{
+    name = "";
+    weight = 0;
+    jumpingJacks = 0;
+    squats = 0;
+    crunches = 0;
+    pushups = 0;
+    burpees = 0;
+    armCircles = 0;
+    wallSit = 0;
+}
+
+function chop() {
+    name = document.getElementById("NameInput").value;
+    //document.getElementById("WeightInput") = name;
+    splitName = name.split("");
+    SetExercises();
+}
+function weigh() {
+    reset();
+    weight = document.getElementById("WeightInput").value;
+    //document.getElementById("WeightInput").value = weight;
+    chop();
+}
+function SetExercises() {
+    for (i = 0; i < splitName.length; i++) {
+        checkExercise(splitName[i]);
+    }
+    caloriesCalc()
+}
+function checkExercise(letter) {
+    if (letter.toLowerCase() === "a") {
+        jumpingJacks += 50;
+    }
+    if (letter.toLowerCase() === "b") {
+        crunches += 20;
+    }
+    if (letter.toLowerCase() === "c") {
+        squats += 30;
+    }
+    if (letter.toLowerCase() === "d") {
+        pushups += 15;
+    }
+    if (letter.toLowerCase() === "e") {
+        wallSit += 1;
+    }
+    if (letter.toLowerCase() === "f") {
+        burpees += 10;
+    }
+    if (letter.toLowerCase() === "g") {
+        armCircles += 20;
+    }
+    if (letter.toLowerCase() === "h") {
+        squats += 20;
+    }
+    if (letter.toLowerCase() === "i") {
+        jumpingJacks += 30;
+    }
+    if (letter.toLowerCase() === "j") {
+        crunches += 15;
+    }
+    if (letter.toLowerCase() === "k") {
+        pushups += 10;
+    }
+    if (letter.toLowerCase() === "l") {
+        wallSit += 2;
+    }
+    if (letter.toLowerCase() === "m") {
+        burpees += 20;
+    }
+    if (letter.toLowerCase() === "n") {
+        burpees += 25;
+    }
+    if (letter.toLowerCase() === "o") {
+        jumpingJacks += 40;
+    }
+    if (letter.toLowerCase() === "p") {
+        armCircles += 15;
+    }
+    if (letter.toLowerCase() === "q") {
+        crunches += 30;
+    }
+    if (letter.toLowerCase() === "r") {
+        pushups += 20;
+    }
+    if (letter.toLowerCase() === "s") {
+        burpees += 30;
+    }
+    if (letter.toLowerCase() === "t") {
+        squats += 15;
+    }
+    if (letter.toLowerCase() === "u") {
+        armCircles += 30;
+    }
+    if (letter.toLowerCase() === "v") {
+        wallSit + 3;
+    }
+    if (letter.toLowerCase() === "w") {
+        burpees += 20;
+    }
+    if (letter.toLowerCase() === "x") {
+        jumpingJacks += 60;
+    }
+    if (letter.toLowerCase() === "y") {
+        crunches += 10;
+    }
+    if (letter.toLowerCase() === "z") {
+        pushups += 20;
+    }
+
+}
+
+function caloriesCalc() {
+    var total = 0;
+    var temp;
+    document.getElementById("Jack1").value = jumpingJacks;
+    temp = (((8.0 * 3.5 * (weight * 0.453592) / 200)) * jumpingJacks / 60);
+    document.getElementById("Jack2").value = temp;
+    total += temp;
+    document.getElementById("Squats1").value = squats;
+    temp = ((6.0 * 3.5 * ((weight * 0.453592) / 200)) * squats / 60);
+    document.getElementById("Squats2").value = temp;
+    total += temp;
+    document.getElementById("Crunches1").value = crunches;
+    temp = ((4.0 * 3.5 * ((weight * 0.453592) / 200)) * crunches / 60);
+    document.getElementById("Crunches2").value = temp;
+    total += temp;
+    document.getElementById("Pushups1").value = pushups;
+    temp = ((4.0 * 3.5 * ((weight * 0.453592) / 200)) * pushups / 60);
+    document.getElementById("Pushups2").value = temp; 
+    total += temp;
+    document.getElementById("Burpees1").value = burpees;
+    temp = ((8.0 * 3.5 * ((weight * 0.453592) / 200)) * burpees / 60);
+    document.getElementById("Burpees2").value = temp;
+    total += temp;
+    document.getElementById("ArmCircles1").value = armCircles;
+    temp = ((3.0 * 3.5 * ((weight * 0.453592) / 200)) * armCircles / 60);
+    document.getElementById("ArmCircles2").value = temp;
+    total += temp;
+    document.getElementById("WallSit1").value = wallSit;
+    temp = ((2.0 * 3.5 * ((weight * 0.453592) / 200)) * (wallSit));
+    document.getElementById("WallSit2").value = temp;
+    total += temp;
+    document.getElementById("calories").value = total;
+}
